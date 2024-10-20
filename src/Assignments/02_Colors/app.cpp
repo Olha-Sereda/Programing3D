@@ -41,17 +41,18 @@ void SimpleShapeApplication::init() {
 
     // A vector containing the x,y,z vertex coordinates for the triangle.
     std::vector<GLfloat> vertices = {
-            -0.5f, 0.0f, 0.0f, 
-            0.5f, 0.0f, 0.0f,
-            0.0f, 0.5f, 0.0f,
+        -0.5f, 0.0f, 0.0f,  1.0f, 0.0f, 0.0f,
+         0.5f, 0.0f, 0.0f,  1.0f, 0.0f, 0.0f,
+         0.0f, 0.5f, 0.0f,  1.0f, 0.0f, 0.0f,
 
-            -0.5f, 0.0f, 0.0f,
-            0.5f, 0.0f, 0.0f,
-            -0.5f, -0.5f, 0.0f,
+        -0.5f, 0.0f, 0.0f,  0.0f, 1.0f, 0.0f,
+         0.5f, 0.0f, 0.0f,  0.0f, 1.0f, 0.0f,
+        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
 
-            -0.5f, -0.5f, 0.0f,
-            0.5f, 0.0f, 0.0f,
-            0.5f, -0.5f, 0.0f,
+         0.5f, 0.0f, 0.0f,  0.0f, 1.0f, 0.0f,
+        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
+         0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f
+
          };
 
     /*
@@ -73,6 +74,9 @@ void SimpleShapeApplication::init() {
     OGL_CALL(glBindVertexArray(vao_));
     OGL_CALL(glBindBuffer(GL_ARRAY_BUFFER, v_buffer_handle));
 
+    OGL_CALL(glEnableVertexAttribArray(1));
+   
+
     /*
      * The following lines bound the vertex attribute 0 to the currently bound vertex buffer (the one we just created).
      * Attribute 0 is specified in the vertex shader with the
@@ -82,8 +86,10 @@ void SimpleShapeApplication::init() {
     // This specifies that the data for attribute 0 should be read from a vertex buffer
     OGL_CALL(glEnableVertexAttribArray(0));
     // and this specifies the data layout in the buffer.
-    OGL_CALL(glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat),
+    OGL_CALL(glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat),
                                    reinterpret_cast<GLvoid *>(0)));
+
+    OGL_CALL(glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), reinterpret_cast<GLvoid*>(3 * sizeof(GLfloat))));
 
     OGL_CALL(glBindBuffer(GL_ARRAY_BUFFER, 0));
     OGL_CALL(glBindVertexArray(0));
