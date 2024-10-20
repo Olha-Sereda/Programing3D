@@ -40,7 +40,7 @@ void SimpleShapeApplication::init() {
     //         0.0f, 0.5f, 0.0f};
 
     // A vector containing the x,y,z vertex coordinates for the triangle.
-    std::vector<GLfloat> vertices = {
+     /* std::vector<GLfloat> vertices = {
         -0.5f, 0.0f, 0.0f,  1.0f, 0.0f, 0.0f,
          0.5f, 0.0f, 0.0f,  1.0f, 0.0f, 0.0f,
          0.0f, 0.5f, 0.0f,  1.0f, 0.0f, 0.0f,
@@ -53,14 +53,26 @@ void SimpleShapeApplication::init() {
         -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
          0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f
 
-         };
+         };*/
 
-    std::vector<GLushort> indices = {
-        0, 1, 2,
-        3, 4, 5, 
-        4, 5, 6, 
-        7, 8, 9
-    };
+ std::vector<GLfloat> vertices = {
+  -0.5f, 0.0f, 0.0f,  1.0f, 0.0f, 0.0f,
+   0.5f, 0.0f, 0.0f,  1.0f, 0.0f, 0.0f,
+   0.0f, 0.5f, 0.0f,  1.0f, 0.0f, 0.0f,
+
+  -0.5f, 0.0f, 0.0f,  0.0f, 1.0f, 0.0f,
+   0.5f, 0.0f, 0.0f,  0.0f, 1.0f, 0.0f,
+  -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
+
+   0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f
+
+   };
+
+ std::vector<GLubyte> indices = {
+  0, 1, 2,
+  3, 4, 5,
+  4, 5, 6
+};
 
     /*
      * All the calls to the OpenGL API are "encapsulated" in the OGL_CALL macro for debugging purposes as explained in
